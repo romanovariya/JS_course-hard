@@ -1,20 +1,22 @@
-const num = 266219;
-
-let strNum,
-    res = 1,
-    len,
-    cube,
-    i = 0,
-    partOfCube;
-
-strNum = num.toString();
-len  = strNum.length;
-while (i < len){
-    res *= +strNum[i];
-    i++;
+let lang = 'ru';
+let week;
+let weekArray;
+if (lang === 'ru') {
+    week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятнца", "Суббота", "Воскресенье"];
+} else if (lang === 'en') {
+    week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 }
-console.log(res);
-cube = res ** 3;
-
-partOfCube = String(cube).slice(0, 2);
-console.log(partOfCube);
+console.log(week);
+switch (lang) {
+    case 'ru':
+        week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятнца", "Суббота", "Воскресенье"];
+        break;
+    case 'en':
+        week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+}
+console.log(week);
+weekArray = {
+    'ru': ["Понедельник", "Вторник", "Среда", "Четверг", "Пятнца", "Суббота", "Воскресенье"],
+    'en': ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+};
+console.log(weekArray[lang]);
