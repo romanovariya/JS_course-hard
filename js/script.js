@@ -2,8 +2,8 @@ const lang = prompt('ru or en'),
     weekRu = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятнца", "Суббота", "Воскресенье"],
     weekEn = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     weekArray = {
-        ru: [weekRu],
-        en: [weekEn],
+        ru: weekRu,
+        en: weekEn,
     },
     namePerson = prompt('Введите имя?');
 if (lang === 'ru' || lang === 'en') {
