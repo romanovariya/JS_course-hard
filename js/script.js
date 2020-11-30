@@ -1,21 +1,20 @@
 'use strict';
-const arr = ['78625', '23897272937', '1220183', '4983981', '20887', '20898', '123838'];
+const arr = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+ 
+for (let i = 0; i < arr.length; i++) {
 
-arr.forEach((item) => {
-    if(item.startsWith('2') || item.startsWith('4')) {
-        console.log(item);
+    let date = new Date();
+
+    if (arr[i] === 'Суббота' || arr[i] === 'Воскресенье')
+    {
+        document.write(arr[i].italics() + '<br \/>');
     }
-});
-
-for (let num = 2; num <= 100; num++) {
-
-    let flag = true;
-    for ( let i = 2; i < num; i++) {
-        if (num % i === 0) {
-            flag = false;
-        }
+    else if (i === date.getDay() - 1)
+    {
+        document.write(arr[i].bold() + '<br \/>');
     }
-    if (flag === true){
-      console.log(num + ' Делители этого числа 1 и ' + num);
+    else
+    {
+        document.write(arr[i] + '<br \/>');
     }
 }
