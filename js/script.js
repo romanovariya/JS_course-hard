@@ -1,21 +1,19 @@
 'use strict';
- const arr = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
-    monthArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 
-    'сентрября', 'октября', 'ноября', 'декабря'];
 
     function dateClock() {
        
     let date = new Date(),
-        day = arr[date.getDay() - 1],
+        daySmall = date.toLocaleString('ru', {weekday: 'long'}),
         dayNum = date.getDate(),
-        month = monthArr[date.getMonth()],
+        newMonth = date.toLocaleString('ru', {month: 'long'}),
+        month = newMonth.replace(newMonth[newMonth.length - 1], 'я'),
+        day = daySmall.charAt(0).toUpperCase() + daySmall.slice(1),
         year = date.getFullYear(),
         hours = date.getHours(),
         hourWord,
         secWord,
         min = date.getMinutes(),
         sec = date.getSeconds();
-
     if (hours === 1 || hours === 21) {
         hourWord = 'час';
     } else if ((hours >= 2 && hours <= 4) || hours === 22 || hours === 23) {
@@ -33,20 +31,9 @@
     }
         document.getElementById("siteDate").innerHTML = 'Сегодня ' + day + ', ' + dayNum + 
         ' ' + month + ' ' + year + ' года, ' + hours + ' ' + hourWord  + ' ' + min + ' минут ' + sec + ' ' + secWord;
-    }
-    function clock() { 
-        let date = new Date(),
-            day = (date.getDate() < 10) ? '0' + date.getDate() : date.getDate(),
-            month = (date.getMonth() < 10) ? '0' + date.getMonth() : date.getMonth(),
-            year = date.getFullYear(),
-            hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours(),
-            minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes(),
-            seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
-            document.getElementById("siteClock").innerHTML = day + '.' + month + '.' + 
-            year + ' - ' + hours + ':' + minutes + ':' + seconds;
+        document.getElementById("siteClock").innerHTML = date.toLocaleString('ru').replace(',', ' - ');
     }
     setInterval(dateClock, 1000);
-    setInterval(clock, 1000);
     dateClock();
-    clock();
+    
     
